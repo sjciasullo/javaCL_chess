@@ -21,11 +21,22 @@
                 - different ways of calculating from that end to original spot, rather than finding piece in player.team and calulating end place from there
                 - checks possible moves for piece against whether or not full?
                 - no, first check if spot if full
+                    - after, make a dummy piece of that kind and try to move to it?
+                    - or use a second hashmap to hold pieces
+
             3. if new spot is valid, and contains a piece from other team, remove piece from other team
         - checkmate considerations
             - will need to use scan after moving a piece to check if it should be added to checkList
             - if added to checkList will need to have each possible move of checkers
             - if king of opposite team has no possible moves out then checkmate
+            - possible strategy
+                1. test if king can move out of check
+                    - check all locations for king
+                        - check if any opposing team pieces can move to that spot
+                2. test if any of king's pieces can take the checker's position
+                3. if checker is blockable, test if any of king's pieces can move to a blocking position (between king and checker)
+                4. then return checkmate... 
+                5. doesn't account for double check though
     - Class Organization
         - Abstract class Piece
             - static left bound and right bound for checking canMoveToLocation
@@ -43,11 +54,18 @@
             - canMoveToLocation(String[] board, int[] location)
                 - checks if a piece can move to a specific location
                 - ~~does this return string of piece if occupied?~~ no, returns boolean, obviously, so will have to check in moveFunction after canMove... is called
+                - ~~possibly may have to use int returns so that we can return the reverse for moving?~~
+                    - this is solved by changing command structure to "position to position" and this also supports using hashmap<position, piece>
             - stubbed canCheck(int[] location)
                 - potential / check helper
+            - stubbed scan()
+                - may need to use a scan for checking purposes
         - GameState
             - Piece[] white, black
-                - may change this and make class to hold team and checkers
+                - may change this and make class Team to hold team and checkers
+                    - this method may be more difficult to delete members from team
+                    - maybe it is a hashmap with pieceName, array of pieces second
+                    - maybe it is a hashmap by position, then I can just delete by position in constant time
                 - could create in order, but want to maintain kings position so should be 0...
                 - teams are created in construction
                 - no get, set managed within class
