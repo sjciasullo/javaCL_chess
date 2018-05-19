@@ -50,7 +50,7 @@
             - String team
                 - created on construction to be black or white
                 - get, no set because on construction
-            - getName() returns string of full name for board
+            - getBoardName() returns string of full name for board
             - canMoveToLocation(String[] board, int[] location)
                 - checks if a piece can move to a specific location
                 - ~~does this return string of piece if occupied?~~ no, returns boolean, obviously, so will have to check in moveFunction after canMove... is called
