@@ -31,4 +31,8 @@ abstract public class Piece {
     this.position[0] = position[0];
     this.position[1] = position[1];
   }
+
+  public String getBoardName(){
+    return "piece";
+  }
 }
