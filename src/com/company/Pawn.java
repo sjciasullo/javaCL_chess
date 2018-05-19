@@ -1,8 +1,6 @@
 package com.company;
 
 public class Pawn extends Piece{
-  private boolean isFirstMove = true;
-
   Pawn(String team, int[] position){
     super(team, position);
   }
@@ -25,7 +23,7 @@ public class Pawn extends Piece{
       // black pawn increases rows, white pawn decreases rows
       if(newColumn == currentColumn){
         if(newRow == currentRow + teamFactor ||
-           newRow == currentRow + (teamFactor * 2) && this.isFirstMove){
+           newRow == currentRow + (teamFactor * 2) && this.getFirstMove()){
           return true;
         }
       }
