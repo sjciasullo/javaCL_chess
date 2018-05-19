@@ -56,10 +56,12 @@
                 - ~~does this return string of piece if occupied?~~ no, returns boolean, obviously, so will have to check in moveFunction after canMove... is called
                 - ~~possibly may have to use int returns so that we can return the reverse for moving?~~
                     - this is solved by changing command structure to "position to position" and this also supports using hashmap<position, piece>
-            - stubbed canCheck(int[] location)
-                - potential / check helper
-            - stubbed scan()
-                - may need to use a scan for checking purposes
+            - possibles
+                - stubbed canCheck(int[] location)
+                    - potential / check helper
+                - stubbed scan()
+                    - may need to use a scan for checking purposes
+                - boolean isBlockable for checkmate consideration (true for queen, bishop, rook)
         - GameState
             - Piece[] white, black
                 - may change this and make class Team to hold team and checkers
