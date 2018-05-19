@@ -51,7 +51,7 @@
                 - created on construction to be black or white
                 - get, no set because on construction
             - getBoardName() returns string of full name for board
-            - canMoveToPosition(String[] board, int[] position)
+            - canMoveToPosition(String[][] board, int[] position)
                 - checks if a piece can move to a specific position
                 - ~~does this return string of piece if occupied?~~ no, returns boolean, obviously, so will have to check in moveFunction after canMove... is called
                 - ~~possibly may have to use int returns so that we can return the reverse for moving?~~
