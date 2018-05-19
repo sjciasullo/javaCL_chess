@@ -14,9 +14,15 @@ public class GameState {
       int[] blackPosition = {1, i};
       black.put(blackPosition, new Pawn("black", blackPosition));
 
-      int[] whitePosition = {7, i};
+      int[] whitePosition = {6, i};
       white.put(whitePosition, new Pawn("white", whitePosition));
     }
+
+    System.out.println(black.keySet());
+    System.out.println(white.keySet());
+
+    int[] keys = {1, 0};
+    System.out.println(Boolean.toString(black.containsKey(keys)));
 
     // Initialize board
     for(int i = 0; i < 8; i++){

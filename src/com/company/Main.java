@@ -10,5 +10,7 @@ public class Main {
     Pawn pawn = new Pawn("black", position);
     System.out.println(pawn.getBoardName());
 
+    // BEGIN GAMESTATE
+    GameState game = new GameState();
   }
 }
