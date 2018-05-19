@@ -1,8 +1,8 @@
 package com.company;
 
 abstract public class Piece {
-    public final int ROW = 0;
-    public final int COLUMN = 1;
+    public static final int ROW = 0;
+    public static final int COLUMN = 1;
     private String team;
     private int[] position = new int[2];
 
