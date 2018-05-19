@@ -111,6 +111,10 @@
     - use Piece.canCheck()?
     - keep a King.isChecked
     - King.scanForMoves
+    - if use strategy then how do we handle double checks?
+- desired command structure is "piece_name to location"
+    - can we make this implementation work?
+    - first changed to location to location to account for ease of checking if team has piece and it can move there, using hashmap structure<location, piece>
 
 
 ### Wins and Challenges
