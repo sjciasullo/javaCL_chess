@@ -110,6 +110,7 @@ public class GameState {
     }
 
     System.out.println("You don't suppose this is going to be like [slight pause] real wizard's chess, do you?");
+    printBoard();
     //runGame until we have a winner
     /*
     while(!isWinner){
@@ -143,10 +144,12 @@ public class GameState {
           }
         }
         boardRow++;
+        printBuilder.append(pieceRow);
       } else {
         printBuilder.append(spaces);
       }
     }
+    System.out.println(printBuilder.toString());
   }
 
   // returns false if we need a invalid command or help is entered
