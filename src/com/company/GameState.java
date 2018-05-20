@@ -125,6 +125,8 @@ public class GameState {
     while(!checkMate){
       printBoard();
       System.out.println();
+
+      // read in a move
       boolean validMoveEntered = false;
       while(!validMoveEntered){
         System.out.print(currentTeam + " team's turn.\n" + "Please enter a move: ");
@@ -133,9 +135,52 @@ public class GameState {
         if(lineWords[0].equals("HELP")){
           printHelp();
           // else check if both first and second words are valid keys in map, else print error
-        } /*else if(){
+        } else if(isValidCommand(lineWords)){
+          Coordinate origin = printToCoord.get(lineWords[0]);
+          Coordinate destination = printToCoord.get(lineWords[1]);
 
-        } */else {
+          // check if current team has a piece at that spot
+          if(currentTeam.equals("White") && white.containsKey(origin)){
+            if(white.get(origin).isValidMove(board, destination)){
+              validMoveEntered = true;
+              // if opponent had piece at origin, remove it from the team
+              // TODO: add another conditional for checking and set the state to a checking position
+              if(black.containsKey(destination)){
+                Piece defeated = black.remove(destination);
+                System.out.println(white.get(origin).getBoardName() + " takes " + defeated.getBoardName());
+              }
+
+              // move the piece to new destination and update board
+              white.put(destination, white.get(origin));
+              white.remove(origin);
+              board[destination.getRow()][destination.getColumn()] = white.get(destination).getBoardName();
+              board[origin.getRow()][origin.getColumn()] = "";
+            }
+          } else if(black.containsKey(origin)){
+            if(black.get(origin).isValidMove(board, destination)){
+              validMoveEntered = true;
+              // if opponent had piece at origin, remove it from the team
+              // TODO: add another conditional for checking and set the state to a checking position
+              if(white.containsKey(destination)){
+                Piece defeated = white.remove(destination);
+                System.out.println(black.get(origin).getBoardName() + " takes " + defeated.getBoardName());
+              }
+
+              // move the piece to new destination and update board
+              black.put(destination, black.get(origin));
+              black.remove(origin);
+              board[destination.getRow()][destination.getColumn()] = black.get(destination).getBoardName();
+              board[origin.getRow()][origin.getColumn()] = "";
+            }
+          }
+
+          // if all of the above conditions didn't fit exactly
+          if(!validMoveEntered){
+            System.out.println("You have entered an invalid move. Please try again.");
+            printHelp();
+          }
+
+        } else {
           System.out.println("You have entered an invalid move. Please try again.");
           printHelp();
         }
@@ -189,8 +234,8 @@ public class GameState {
     System.out.println();
   }
 
-  // returns false if we need a invalid command or help is entered
-  private boolean isValidCommand(){
-    return false;
+  // returns true if both strings are valid keys in the coordinate converter
+  private boolean isValidCommand(String[] commands){
+    return printToCoord.containsKey(commands[0]) && printToCoord.containsKey(commands[1]);
   }
 }
