@@ -41,6 +41,11 @@ public class Coordinate {
     // content check
     return ((Coordinate) obj).getRow() == this.row &&
            ((Coordinate) obj).getColumn() == this.column;
+  }
 
+  @Override
+  public int hashCode(){
+    // specifically uses easy algorithm knowing bound of Coordinates used is [0,8)
+    return this.column + (this.row * 8);
   }
 }
