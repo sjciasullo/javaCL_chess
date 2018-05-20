@@ -86,9 +86,6 @@ public class GameState {
   }
 
   public void runGame(){
-    boolean isWinner = false;
-    String winningTeam = "";
-
     // print welcome message
     System.out.println("Welcome to Command Line Chess!");
     System.out.println("\nIf you are unfamiliar with the rules, please visit http://www.dummies.com/games/chess/chess-for-dummies-cheat-sheet/");
@@ -109,14 +106,38 @@ public class GameState {
       }
     }
 
-    System.out.println("You don't suppose this is going to be like [slight pause] real wizard's chess, do you?");
+    System.out.println("You don't suppose this is going to be like [slight pause] real wizard's chess, do you?\n");
     printBoard();
-    //runGame until we have a winner
-    /*
-    while(!isWinner){
 
+    //runGame until we have a winner
+    boolean checkMate = false;
+    String winningTeam = "";
+    String currentTeam = "White";
+    while(!checkMate){
+      printBoard();
+      System.out.println();
+      boolean validMoveEntered = false;
+      while(!validMoveEntered){
+        System.out.print(currentTeam + " team's turn.\n" + "Please enter a move: ");
+        newLine = input.nextLine().toUpperCase();
+        lineWords = newLine.split(" ");
+        if(lineWords[0].equals("HELP")){
+          printHelp();
+          // else check if both first and second words are valid keys in map, else print error
+        } /*else if(){
+
+        } */else {
+          System.out.println("You have entered an invalid move. Please try again.");
+          printHelp();
+        }
+      }
+
+      // switch active team
+      currentTeam = currentTeam.equals("White") ? "Black" : "White";
     }
-    */
+
+    // print winner and winning message
+    input.close();
   }
 
   // PRIVATE METHODS FOR RUNGAME()
@@ -150,6 +171,13 @@ public class GameState {
       }
     }
     System.out.println(printBuilder.toString());
+  }
+
+  private void printHelp(){
+    System.out.println("An example of a valid move is 'A2 A3'.");
+    System.out.println("For '[origin] [destination]' you must own the piece at origin and it must be able to move to destination under the rules of chess.");
+    System.out.println("If you are unfamiliar with the rules, please visit http://www.dummies.com/games/chess/chess-for-dummies-cheat-sheet/");
+    System.out.println();
   }
 
   // returns false if we need a invalid command or help is entered
