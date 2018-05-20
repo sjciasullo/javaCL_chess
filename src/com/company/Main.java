@@ -6,11 +6,11 @@ public class Main {
     // TESTING CLASS METHODS AND PROPERTIES
 
     // PAWN
-    int[] position = {1,2};
+    Coordinate position = new Coordinate(1,2);
     Pawn pawn = new Pawn("black", position);
     System.out.println(pawn.getBoardName());
 
     // BEGIN GAMESTATE
-    GameState game = new GameState();
+    //GameState game = new GameState();
   }
 }
