@@ -109,10 +109,6 @@
     5. execute compiled main
 
 ### Unsolved Problems
-- As array does not work with hash, must refactor the Hash for a different method
-    - https://stackoverflow.com/questions/15576009/how-to-make-hashmap-work-with-arrays-as-key
-        - suggests that a list would work for key based on implementation of hash 
-        - otherwise we could override the Array.equals in a class
 - solve checkmate checking
     - use Piece.canCheck()?
     - keep a King.isChecked
@@ -125,4 +121,4 @@
 
 ### Wins and Challenges
 -   Design for such a big project with a lot of moving parts. Being able to visualize all the parts with the whole, knowing what way to organize the data in order to solve problems during design phase.
-- overriding the equals and hashCode methods for the Coordinate class brought me to a deeper understanding of overriding and Java's implementation of those Object methods
+- After being brought to the problem of using an array as a hash key, I was able to create a class of Coordinate objects for the hash. The meant I had to override the equals and hashCode methods for the Coordinate class which brought me to a deeper understanding of overriding a Java-defined method and Java's implementation of those Object methods.
