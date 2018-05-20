@@ -11,9 +11,9 @@ public class GameState {
 
   // Print helpers
   private final int WIDTH = 107;
-  private final int HEIGHT = 58;
+  private final int HEIGHT = 5*8 + 2;
   private final int COLUMN_WIDTH = 13;
-  private final int ROW_HEIGHT = 7;
+  private final int ROW_HEIGHT = 5;
   private final String NEW_LINE = System.lineSeparator();
   private String letterHeader;
   private String horizontalLine;
@@ -132,7 +132,7 @@ public class GameState {
         printBuilder.append(letterHeader);
       } else if((row - 1) % ROW_HEIGHT == 0){
         printBuilder.append(horizontalLine);
-      } else if((row - 5) % ROW_HEIGHT == 0){
+      } else if((row - 4) % ROW_HEIGHT == 0){
         // middle of each row check for a string in String[][] board
         StringBuilder pieceRow = new StringBuilder(spaces);
         pieceRow.replace(0, 1, Integer.toString(rowDisplay)); // display the row for visual on board
