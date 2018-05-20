@@ -30,6 +30,11 @@ abstract public class Piece {
     this.position.setColumn(position.getColumn());
   }
 
+  public boolean isValidMove(String[][] board, Coordinate newPosition){
+    System.out.println("This should never execute as it should be overridden by all subclasses");
+    return false;
+  }
+
   public String getBoardName(){
     return "piece";
   }
