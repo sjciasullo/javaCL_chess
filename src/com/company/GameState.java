@@ -8,6 +8,7 @@ public class GameState {
   private HashMap<Coordinate, Piece> white = new HashMap<>();
   private HashMap<Coordinate, Piece> black = new HashMap<>();
   private String[][] board = new String[8][8]; // chessboard
+  private HashMap<String, Coordinate> printToCoord = new HashMap<>();
 
   // Print helpers
   private final int WIDTH = 107;
@@ -83,6 +84,15 @@ public class GameState {
     }
     spaceBuilder.append(NEW_LINE);
     spaces = spaceBuilder.toString();
+
+    // create map for visual coordinates to coordinates for string[][] board
+    // A8 = [0][0]...
+    asciiLetter = 65; // set back to A
+    for(int coordRow = 0, printRow = 8; coordRow < 8; coordRow++, printRow--){
+      for(int coordColumn = 0; coordColumn < 8; coordColumn++){
+        printToCoord.put((char) (asciiLetter + coordColumn) + Integer.toString(printRow), new Coordinate(coordRow, coordColumn));
+      }
+    }
   }
 
   public void runGame(){
@@ -107,7 +117,6 @@ public class GameState {
     }
 
     System.out.println("You don't suppose this is going to be like [slight pause] real wizard's chess, do you?\n");
-    printBoard();
 
     //runGame until we have a winner
     boolean checkMate = false;
