@@ -35,6 +35,11 @@ public class GameState {
     black.put(new Coordinate(0,7), new Rook("black", new Coordinate(0,7)));
     white.put(new Coordinate(7,0), new Rook("white", new Coordinate(7,0)));
     white.put(new Coordinate(7,7), new Rook("white", new Coordinate(7,7)));
+    // -- create knights
+    black.put(new Coordinate(0,1), new Knight("black", new Coordinate(0,1)));
+    black.put(new Coordinate(0,6), new Knight("black", new Coordinate(0,6)));
+    white.put(new Coordinate(7,1), new Knight("white", new Coordinate(7,1)));
+    white.put(new Coordinate(7,6), new Knight("white", new Coordinate(7,6)));
 
     // Initialize board
     for(int i = 0; i < 8; i++){
