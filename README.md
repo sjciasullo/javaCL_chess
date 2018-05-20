@@ -118,11 +118,20 @@
 -   solution: breakpoint on isValidMove in pawn class
     - this showed that current location of piece was not updated yet. this indicates a problem within GameState.runGame as we need to update the location in the hashmap of team after making a move
     - Success
+- refactor isValidMoves
+    - might be able to refactor with a function for checking the different possible lines
 - solve checkmate checking, double check, and stalemate
     - use Piece.canCheck()?
     - keep a King.isChecked
     - King.scanForMoves
     - if use strategy then how do we handle double checks?
+    - temporary solution:
+        - add a forfeit command option
+        - maintain a coordinate for blackKing and whiteKing
+            - if the king moves update it
+        - if the piece that moved can move to king location, notify check
+            - save checker location in variable and go to check gamestate
+            - if a command is entered that is a valid move, see if the checker can still attack the king. if they can then prompt the user that they would still be in check and that they can forfeit if they want
 - desired command structure is "piece_name to location"
     - can we make this implementation work?
     - first changed to location to location to account for ease of checking if team has piece and it can move there, using hashmap structure<location, piece>
