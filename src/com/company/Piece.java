@@ -4,14 +4,14 @@ abstract public class Piece {
     public static final int ROW = 0;
     public static final int COLUMN = 1;
     private String team;
-    private int[] position = new int[2];
+    private Coordinate position;
     private boolean isFirstMove = true;
 
 
-  Piece(String team, int[] position){
-        this.team = team;
-        this.position[0] = position[0];
-        this.position[1] = position[1];
+  Piece(String team, Coordinate position){
+    this.team = team;
+    this.position.setRow(position.getRow());
+    this.position.setColumn(position.getColumn());
   }
 
   public String getTeam(){

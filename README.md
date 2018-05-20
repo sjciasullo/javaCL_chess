@@ -125,3 +125,4 @@
 
 ### Wins and Challenges
 -   Design for such a big project with a lot of moving parts. Being able to visualize all the parts with the whole, knowing what way to organize the data in order to solve problems during design phase.
+- overriding the equals and hashCode methods for the Coordinate class brought me to a deeper understanding of overriding and Java's implementation of those Object methods
