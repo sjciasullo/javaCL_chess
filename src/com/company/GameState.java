@@ -3,23 +3,23 @@ package com.company;
 import java.util.HashMap;
 
 public class GameState {
-  private HashMap<int[], Piece> white = new HashMap<>();
-  private HashMap<int[], Piece> black = new HashMap<>();
+  private HashMap<Coordinate, Piece> white = new HashMap<>();
+  private HashMap<Coordinate, Piece> black = new HashMap<>();
   private String[][] board = new String[8][8]; // chessboard
 
   GameState(){
     // Create both teams
     // -- create pawns
     for(int i = 0; i < 8; i++){
-      int[] blackPosition = {1, i};
+      Coordinate blackPosition = new Coordinate(1, i);
       black.put(blackPosition, new Pawn("black", blackPosition));
 
-      int[] whitePosition = {6, i};
+      Coordinate whitePosition = new Coordinate(6, i);
       white.put(whitePosition, new Pawn("white", whitePosition));
     }
 
-    System.out.println(black.keySet());
-    System.out.println(white.keySet());
+    //System.out.println(black.keySet());
+    //System.out.println(white.keySet());
 
     int[] keys = {1, 0};
     System.out.println(Boolean.toString(black.containsKey(keys)));

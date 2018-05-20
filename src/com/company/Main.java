@@ -11,6 +11,6 @@ public class Main {
     System.out.println(pawn.getBoardName());
 
     // BEGIN GAMESTATE
-    //GameState game = new GameState();
+    GameState game = new GameState();
   }
 }
