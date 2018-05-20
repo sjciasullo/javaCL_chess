@@ -142,9 +142,11 @@ public class GameState {
         System.out.print(currentTeam + " team's turn.\n" + "Please enter a move: ");
         newLine = input.nextLine().toUpperCase();
         lineWords = newLine.split(" ");
+
         if(lineWords[0].equals("HELP")){
           printHelp();
-          // else check if both first and second words are valid keys in map, else print error
+        } else if(lineWords.length < 2) {
+          System.out.println("You have entered an invalid move. Please try again.");
         } else if(isValidCommand(lineWords)){
           Coordinate origin = printToCoord.get(lineWords[0]);
           Coordinate destination = printToCoord.get(lineWords[1]);
