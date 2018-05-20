@@ -9,7 +9,7 @@ public class Pawn extends Piece{
     return "(" + this.getTeam().charAt(0) + ")" + " pawn";
   }
 
-  public boolean canMoveToPosition(String[][] board, Coordinate newPosition){
+  public boolean isValidMove(String[][] board, Coordinate newPosition){
     String occupant = board[ newPosition.getRow() ][ newPosition.getColumn() ];
     int teamFactor = this.getTeam().equals("black") ? 1 : -1;
     int newRow = newPosition.getRow();
