@@ -9,8 +9,7 @@ abstract public class Piece {
 
   Piece(String team, Coordinate position){
     this.team = team;
-    this.position.setRow(position.getRow());
-    this.position.setColumn(position.getColumn());
+    this.position = new Coordinate(position.getRow(), position.getColumn());
   }
 
   public String getTeam(){

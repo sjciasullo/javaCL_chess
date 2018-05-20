@@ -7,10 +7,10 @@ public class Main {
 
     // PAWN
     Coordinate position = new Coordinate(1,2);
-    Pawn pawn = new Pawn("black", position);
-    System.out.println(pawn.getBoardName());
+    Pawn pawn1 = new Pawn("black", position);
+    System.out.println(pawn1.getBoardName());
 
     // BEGIN GAMESTATE
-    GameState game = new GameState();
+    //GameState game = new GameState();
   }
 }
