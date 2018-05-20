@@ -9,13 +9,13 @@ public class Pawn extends Piece{
     return "(" + this.getTeam().charAt(0) + ")" + " pawn";
   }
 
-  public boolean canMoveToPosition(String[][] board, int[] newPosition){
-    String occupant = board[ newPosition[Piece.ROW] ][ newPosition[Piece.COLUMN] ];
+  public boolean canMoveToPosition(String[][] board, Coordinate newPosition){
+    String occupant = board[ newPosition.getRow() ][ newPosition.getColumn() ];
     int teamFactor = this.getTeam().equals("black") ? 1 : -1;
-    int newRow = newPosition[Piece.ROW];
-    int newColumn = newPosition[Piece.COLUMN];
-    int currentRow = this.getPosition()[Piece.ROW];
-    int currentColumn = this.getPosition()[Piece.COLUMN];
+    int newRow = newPosition.getRow();
+    int newColumn = newPosition.getColumn();
+    int currentRow = this.getPosition().getRow();
+    int currentColumn = this.getPosition().getColumn();
 
     // Check if position is empty or held by other team. Ex. "(w) bishop" and black
     if(occupant.isEmpty()){
