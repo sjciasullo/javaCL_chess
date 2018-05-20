@@ -109,6 +109,10 @@
     5. execute compiled main
 
 ### Unsolved Problems
+- As array does not work with hash, must refactor the Hash for a different method
+    - https://stackoverflow.com/questions/15576009/how-to-make-hashmap-work-with-arrays-as-key
+        - suggests that a list would work for key based on implementation of hash 
+        - otherwise we could override the Array.equals in a class
 - solve checkmate checking
     - use Piece.canCheck()?
     - keep a King.isChecked
