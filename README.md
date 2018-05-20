@@ -109,7 +109,7 @@
     5. execute compiled main
 
 ### Unsolved Problems
-- solve checkmate checking
+- solve checkmate checking, double check, and stalemate
     - use Piece.canCheck()?
     - keep a King.isChecked
     - King.scanForMoves
@@ -118,6 +118,10 @@
     - can we make this implementation work?
     - first changed to location to location to account for ease of checking if team has piece and it can move there, using hashmap structure<location, piece>
 
+### Future Features
+- optional 1 player or 2 player
+    - creation of chess AI
+- adding visuals
 
 ### Wins and Challenges
 -   Design for such a big project with a lot of moving parts. Being able to visualize all the parts with the whole, knowing what way to organize the data in order to solve problems during design phase.
