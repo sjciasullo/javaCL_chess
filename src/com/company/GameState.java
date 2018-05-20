@@ -18,16 +18,10 @@ public class GameState {
       white.put(whitePosition, new Pawn("white", whitePosition));
     }
 
-    //System.out.println(black.keySet());
-    //System.out.println(white.keySet());
-
-    Coordinate test = new Coordinate(1,1);
-    System.out.println(Boolean.toString(black.containsKey(test)));
-
     // Initialize board
     for(int i = 0; i < 8; i++){
       for(int j = 0; j < 8; j++){
-        int[] key = {i, j};
+        Coordinate key = new Coordinate(i, j);
         if(black.containsKey(key)){
           board[i][j] = black.get(key).getBoardName();
         } else if(white.containsKey(key)){
