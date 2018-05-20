@@ -109,6 +109,13 @@
     5. execute compiled main
 
 ### Unsolved Problems
+- pawn does not resolve movement to take another pawn
+    - how to replicate error: move opponent pawn to position where it can be taken
+        - try to take pawn by entering origin and destination
+        - error holds for both teams
+    - is the board[][] being updated correctly?
+    - is it a problem with the pawn isvalidmove function?
+-   solution: breakpoint on isValidMove in pawn class
 - solve checkmate checking, double check, and stalemate
     - use Piece.canCheck()?
     - keep a King.isChecked

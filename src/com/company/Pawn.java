@@ -17,6 +17,8 @@ public class Pawn extends Piece{
     int currentRow = this.getPosition().getRow();
     int currentColumn = this.getPosition().getColumn();
 
+    System.out.println("is this executing");
+
     // Check if position is empty or held by other team. Ex. "(w) bishop" and black
     if(occupant.isEmpty()){
       // if same x value, check y value with account for team
