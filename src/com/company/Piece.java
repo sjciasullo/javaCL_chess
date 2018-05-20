@@ -1,11 +1,12 @@
 package com.company;
 
 abstract public class Piece {
-    public static final int ROW = 0;
-    public static final int COLUMN = 1;
-    private String team;
-    private Coordinate position;
-    private boolean isFirstMove = true;
+  public static final int ROW = 0;
+  public static final int COLUMN = 1;
+  private boolean isFirstMove = true;
+  private String team;
+  private Coordinate position;
+
 
 
   Piece(String team, Coordinate position){
@@ -18,12 +19,12 @@ abstract public class Piece {
     return team;
   }
 
-  public int[] getPosition(){
-    return position;
-  }
-
   public boolean getFirstMove(){
     return this.isFirstMove;
+  }
+
+  public Coordinate getPosition(){
+    return position;
   }
 
   public void setPosition(int[] position){
