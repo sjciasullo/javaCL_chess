@@ -21,8 +21,8 @@ public class GameState {
     //System.out.println(black.keySet());
     //System.out.println(white.keySet());
 
-    int[] keys = {1, 0};
-    System.out.println(Boolean.toString(black.containsKey(keys)));
+    Coordinate test = new Coordinate(1,1);
+    System.out.println(Boolean.toString(black.containsKey(test)));
 
     // Initialize board
     for(int i = 0; i < 8; i++){
