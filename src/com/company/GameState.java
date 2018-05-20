@@ -13,6 +13,7 @@ public class GameState {
   private final int WIDTH = 107;
   private final int HEIGHT = 58;
   private final int COLUMN_WIDTH = 13;
+  private final int ROW_HEIGHT = 7;
   private final String NEW_LINE = System.lineSeparator();
   private String letterHeader;
   private String horizontalLine;
@@ -109,7 +110,6 @@ public class GameState {
     }
 
     System.out.println("You don't suppose this is going to be like [slight pause] real wizard's chess, do you?");
-
     //runGame until we have a winner
     /*
     while(!isWinner){
@@ -120,8 +120,33 @@ public class GameState {
 
   // PRIVATE METHODS FOR RUNGAME()
 
+  // Prints the board using strings created at construction and the String[][] board
   // sizing of print board is to allow for space around any piece's name
   private void printBoard(){
+    StringBuilder printBuilder = new StringBuilder(WIDTH * HEIGHT);
+    int rowDisplay = 8;
+    int boardRow = 0;
+    for(int row = 0; row < HEIGHT; row++){
+      if(row == 0){
+        printBuilder.append(letterHeader);
+      } else if((row - 1) % ROW_HEIGHT == 0){
+        printBuilder.append(horizontalLine);
+      } else if((row - 5) % ROW_HEIGHT == 0){
+        // middle of each row check for a string in String[][] board
+        StringBuilder pieceRow = new StringBuilder(spaces);
+        pieceRow.replace(0, 1, Integer.toString(rowDisplay)); // display the row for visual on board
+        rowDisplay--;
+        for(int printColumn = 4, boardColumn = 0; printColumn < WIDTH; printColumn += COLUMN_WIDTH, boardColumn++){
+          String boardContents = board[boardRow][boardColumn];
+          if(!boardContents.equals("")){
+            pieceRow.replace(printColumn, boardContents.length() + printColumn, boardContents);
+          }
+        }
+        boardRow++;
+      } else {
+        printBuilder.append(spaces);
+      }
+    }
   }
 
   // returns false if we need a invalid command or help is entered
