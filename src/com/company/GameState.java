@@ -83,6 +83,8 @@ public class GameState {
     }
     spaceBuilder.append(NEW_LINE);
     spaces = spaceBuilder.toString();
+
+    System.out.println(letterHeader + horizontalLine + spaces);
   }
 
   public void runGame(){
