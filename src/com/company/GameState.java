@@ -150,9 +150,10 @@ public class GameState {
                 System.out.println(white.get(origin).getBoardName() + " takes " + defeated.getBoardName());
               }
 
-              // move the piece to new destination and update board
+              // move the piece to new destination and update board, AND UPDATE PIECE.CURRENTposition
               white.put(destination, white.get(origin));
               white.remove(origin);
+              white.get(destination).setPosition(destination);
               board[destination.getRow()][destination.getColumn()] = white.get(destination).getBoardName();
               board[origin.getRow()][origin.getColumn()] = "";
             }
@@ -166,9 +167,10 @@ public class GameState {
                 System.out.println(black.get(origin).getBoardName() + " takes " + defeated.getBoardName());
               }
 
-              // move the piece to new destination and update board
+              // move the piece to new destination and update board, and update Piece.currentPosition
               black.put(destination, black.get(origin));
               black.remove(origin);
+              black.get(destination).setPosition(destination);
               board[destination.getRow()][destination.getColumn()] = black.get(destination).getBoardName();
               board[origin.getRow()][origin.getColumn()] = "";
             }
