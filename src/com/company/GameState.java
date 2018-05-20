@@ -10,8 +10,8 @@ public class GameState {
   private String[][] board = new String[8][8]; // chessboard
 
   // Print helpers
-  private final int WIDTH = 105;
-  private final int HEIGHT = 57;
+  private final int WIDTH = 106;
+  private final int HEIGHT = 58;
   private final int COLUMN_WIDTH = 13;
   private final String NEW_LINE = System.lineSeparator();
   private String letterHeader;
@@ -45,34 +45,37 @@ public class GameState {
 
     // Create Print String Helpers
       // Header
-    letterHeader = "";
+    StringBuffer headerBuffer = new StringBuffer(WIDTH);
     int asciiLetter = 65; // => 'A'
-    for(int i = 0; i <= 105; i++){
-      if((i - 7) % 13 == 0){
-        letterHeader += (char) asciiLetter;
+    for(int i = 0; i < WIDTH; i++){
+      if((i - 7) % COLUMN_WIDTH == 0){
+        headerBuffer.append((char) asciiLetter);
         asciiLetter++;
       } else {
-        letterHeader += " ";
+        headerBuffer.append(" ");
       }
     }
-    letterHeader += NEW_LINE;
+    headerBuffer.append(NEW_LINE);
+    letterHeader = headerBuffer.toString();
 
       // Horizontal Line
-    horizontalLine = "";
-    horizontalLine += " ";
-    for(int i = 1; i <= WIDTH; i++){
-      if((i - 1) % 13 == 0){
-        horizontalLine += "|";
+    StringBuffer horizontalBuffer = new StringBuffer(WIDTH);
+    horizontalBuffer.append(" ");
+    for(int i = 1; i < WIDTH; i++){
+      if((i - 1) % COLUMN_WIDTH == 0){
+        horizontalBuffer.append("|");
       } else {
-        horizontalLine += "_";
+        horizontalBuffer.append("_");
       }
     }
-    horizontalLine += NEW_LINE;
+    horizontalBuffer.append(NEW_LINE);
+    horizontalLine = horizontalBuffer.toString();
 
       // spaces
     spaces = "";
-    for(int i =0; i <= WIDTH; i++){
-      if((i - 1) % 13 == 0){
+    String
+    for(int i =0; i < WIDTH; i++){
+      if((i - 1) % COLUMN_WIDTH == 0){
         spaces += "|";
       } else {
         spaces += " ";
