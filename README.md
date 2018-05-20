@@ -116,6 +116,7 @@
     - is the board[][] being updated correctly?
     - is it a problem with the pawn isvalidmove function?
 -   solution: breakpoint on isValidMove in pawn class
+    - this showed that current location of piece was not updated yet. this indicates a problem within GameState.runGame as we need to update the location in the hashmap of team after making a move
 - solve checkmate checking, double check, and stalemate
     - use Piece.canCheck()?
     - keep a King.isChecked
