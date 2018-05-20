@@ -109,14 +109,15 @@
     5. execute compiled main
 
 ### Unsolved Problems
-- pawn does not resolve movement to take another pawn
+- ~~pawn does not resolve movement to take another pawn~~
     - how to replicate error: move opponent pawn to position where it can be taken
         - try to take pawn by entering origin and destination
         - error holds for both teams
-    - is the board[][] being updated correctly?
-    - is it a problem with the pawn isvalidmove function?
+    - ~~is the board[][] being updated correctly?~~
+    - ~~is it a problem with the pawn isvalidmove function?~~
 -   solution: breakpoint on isValidMove in pawn class
     - this showed that current location of piece was not updated yet. this indicates a problem within GameState.runGame as we need to update the location in the hashmap of team after making a move
+    - Success
 - solve checkmate checking, double check, and stalemate
     - use Piece.canCheck()?
     - keep a King.isChecked
@@ -134,3 +135,4 @@
 ### Wins and Challenges
 -   Design for such a big project with a lot of moving parts. Being able to visualize all the parts with the whole, knowing what way to organize the data in order to solve problems during design phase.
 - After being brought to the problem of using an array as a hash key, I was able to create a class of Coordinate objects for the hash. The meant I had to override the equals and hashCode methods for the Coordinate class which brought me to a deeper understanding of overriding a Java-defined method and Java's implementation of those Object methods.
+- successful debugging of pawn movement taking another pawn
