@@ -30,6 +30,11 @@ public class GameState {
       Coordinate whitePosition = new Coordinate(6, i);
       white.put(whitePosition, new Pawn("white", whitePosition));
     }
+    // -- create rooks
+    black.put(new Coordinate(0,0), new Rook("black", new Coordinate(0,0)));
+    black.put(new Coordinate(0,7), new Rook("black", new Coordinate(0,7)));
+    white.put(new Coordinate(7,0), new Rook("white", new Coordinate(7,0)));
+    white.put(new Coordinate(7,7), new Rook("white", new Coordinate(7,7)));
 
     // Initialize board
     for(int i = 0; i < 8; i++){
