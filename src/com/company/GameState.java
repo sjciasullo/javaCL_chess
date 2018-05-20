@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -42,9 +43,23 @@ public class GameState {
     System.out.println("Welcome to Command Line Chess!");
     System.out.println("\nIf you are unfamiliar with the rules, please visit http://www.dummies.com/games/chess/chess-for-dummies-cheat-sheet/");
     System.out.println("\nPlease enter 'play' to begin");
-    System.out.println("Enter 'help' at any time to see correct move formatting");
+    System.out.println("Enter 'help' at any time to see correct move formatting\n");
 
-    
+    Scanner input = new Scanner(System.in);
+    String newLine;
+    String[] lineWords;
+
+    boolean playBegin = false;
+    while(!playBegin){
+      newLine = input.nextLine().toLowerCase();
+      lineWords = newLine.split(" ");
+      System.out.println(Arrays.toString(lineWords));
+      if(lineWords[0].equals("play")){
+        playBegin = true;
+      }
+    }
+
+    System.out.println("You don't suppose this is going to be like [slight pause] real wizard's chess, do you?");
 
     //runGame until we have a winner
     /*
@@ -52,5 +67,10 @@ public class GameState {
 
     }
     */
+  }
+
+  // returns false if we need a invalid command or help is entered
+  private boolean isValidCommand(){
+    return false;
   }
 }
