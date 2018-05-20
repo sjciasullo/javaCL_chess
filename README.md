@@ -41,7 +41,7 @@
         - Abstract class Piece
             - static left bound and right bound for checking canMoveToposition
             - Pawn, Rook, Knight, Bishop, Queen, King inherit from Piece
-            - int[] position
+            - Coordinate position
                 - denotes position in board array
                 - get, set
             - boolean isFirstMove
@@ -51,13 +51,13 @@
                 - created on construction to be black or white
                 - get, no set because on construction
             - getBoardName() returns string of full name for board
-            - canMoveToPosition(String[][] board, int[] position)
+            - ~~canMoveToPosition~~isValidMove(String[][] board, Coordinate position)
                 - checks if a piece can move to a specific position
                 - ~~does this return string of piece if occupied?~~ no, returns boolean, obviously, so will have to check in moveFunction after canMove... is called
                 - ~~possibly may have to use int returns so that we can return the reverse for moving?~~
                     - this is solved by changing command structure to "position to position" and this also supports using hashmap<position, piece>
             - possibles
-                - stubbed canCheck(int[] position)
+                - stubbed canCheck(Coordinate position)
                     - potential / check helper
                 - stubbed scan()
                     - may need to use a scan for checking purposes
