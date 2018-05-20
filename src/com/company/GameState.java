@@ -45,43 +45,44 @@ public class GameState {
 
     // Create Print String Helpers
       // Header
-    StringBuffer headerBuffer = new StringBuffer(WIDTH);
+    StringBuilder headerBuilder = new StringBuilder(WIDTH);
     int asciiLetter = 65; // => 'A'
     for(int i = 0; i < WIDTH; i++){
       if((i - 7) % COLUMN_WIDTH == 0){
-        headerBuffer.append((char) asciiLetter);
+        headerBuilder.append((char) asciiLetter);
         asciiLetter++;
       } else {
-        headerBuffer.append(" ");
+        headerBuilder.append(" ");
       }
     }
-    headerBuffer.append(NEW_LINE);
-    letterHeader = headerBuffer.toString();
+    headerBuilder.append(NEW_LINE);
+    letterHeader = headerBuilder.toString();
 
       // Horizontal Line
-    StringBuffer horizontalBuffer = new StringBuffer(WIDTH);
-    horizontalBuffer.append(" ");
+    StringBuilder horizontalBuilder = new StringBuilder(WIDTH);
+    horizontalBuilder.append(" ");
     for(int i = 1; i < WIDTH; i++){
       if((i - 1) % COLUMN_WIDTH == 0){
-        horizontalBuffer.append("|");
+        horizontalBuilder.append("|");
       } else {
-        horizontalBuffer.append("_");
+        horizontalBuilder.append("_");
       }
     }
-    horizontalBuffer.append(NEW_LINE);
-    horizontalLine = horizontalBuffer.toString();
+    horizontalBuilder.append(NEW_LINE);
+    horizontalLine = horizontalBuilder.toString();
 
       // spaces
     spaces = "";
-    String
+    StringBuilder spaceBuilder = new StringBuilder(WIDTH);
     for(int i =0; i < WIDTH; i++){
       if((i - 1) % COLUMN_WIDTH == 0){
-        spaces += "|";
+        spaceBuilder.append("|");
       } else {
-        spaces += " ";
+        spaceBuilder.append(" ");
       }
     }
-    spaces += NEW_LINE;
+    spaceBuilder.append(NEW_LINE);
+    spaces = spaceBuilder.toString();
   }
 
   public void runGame(){
