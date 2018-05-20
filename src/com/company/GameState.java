@@ -69,6 +69,12 @@ public class GameState {
     */
   }
 
+  // PRIVATE METHODS FOR RUNGAME()
+
+  // sizing of print board is to allow for space around any piece's name
+  private void printBoard(){
+  }
+
   // returns false if we need a invalid command or help is entered
   private boolean isValidCommand(){
     return false;
