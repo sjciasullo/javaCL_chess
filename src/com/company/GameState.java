@@ -9,6 +9,15 @@ public class GameState {
   private HashMap<Coordinate, Piece> black = new HashMap<>();
   private String[][] board = new String[8][8]; // chessboard
 
+  // Print helpers
+  private final int WIDTH = 105;
+  private final int HEIGHT = 57;
+  private final int COLUMN_WIDTH = 13;
+  private final String NEW_LINE = System.lineSeparator();
+  private String letterHeader;
+  private String horizontalLine;
+  private String spaces;
+
   GameState(){
     // Create both teams
     // -- create pawns
@@ -33,6 +42,43 @@ public class GameState {
         }
       }
     }
+
+    // Create Print String Helpers
+      // Header
+    letterHeader = "";
+    int asciiLetter = 65; // => 'A'
+    for(int i = 0; i <= 105; i++){
+      if((i - 7) % 13 == 0){
+        letterHeader += (char) asciiLetter;
+        asciiLetter++;
+      } else {
+        letterHeader += " ";
+      }
+    }
+    letterHeader += NEW_LINE;
+
+      // Horizontal Line
+    horizontalLine = "";
+    horizontalLine += " ";
+    for(int i = 1; i <= WIDTH; i++){
+      if((i - 1) % 13 == 0){
+        horizontalLine += "|";
+      } else {
+        horizontalLine += "_";
+      }
+    }
+    horizontalLine += NEW_LINE;
+
+      // spaces
+    spaces = "";
+    for(int i =0; i <= WIDTH; i++){
+      if((i - 1) % 13 == 0){
+        spaces += "|";
+      } else {
+        spaces += " ";
+      }
+    }
+    spaces += NEW_LINE;
   }
 
   public void runGame(){
