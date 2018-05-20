@@ -7,8 +7,6 @@ abstract public class Piece {
   private String team;
   private Coordinate position;
 
-
-
   Piece(String team, Coordinate position){
     this.team = team;
     this.position.setRow(position.getRow());
@@ -27,10 +25,10 @@ abstract public class Piece {
     return position;
   }
 
-  public void setPosition(int[] position){
+  public void setPosition(Coordinate position){
     this.isFirstMove = false;
-    this.position[0] = position[0];
-    this.position[1] = position[1];
+    this.position.setRow(position.getRow());
+    this.position.setColumn(position.getColumn());
   }
 
   public String getBoardName(){
