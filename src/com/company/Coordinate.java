@@ -9,5 +9,38 @@ public class Coordinate {
     this.column = column;
   }
 
+  public int getRow() {
+    return row;
+  }
 
+  public void setRow(int row) {
+    this.row = row;
+  }
+
+  public int getColumn() {
+    return column;
+  }
+
+  public void setColumn(int column) {
+    this.column = column;
+  }
+
+  // Uses strategy from https://www.sitepoint.com/implement-javas-equals-method-correctly/
+  @Override
+  public boolean equals(Object obj){
+    // self check for optimization
+    if(this == obj){
+      return true;
+    }
+
+    // null check and type check
+    if (obj == null || !(obj instanceof Coordinate)){
+      return false;
+    }
+
+    // content check
+    return ((Coordinate) obj).getRow() == this.row &&
+           ((Coordinate) obj).getColumn() == this.column;
+
+  }
 }
