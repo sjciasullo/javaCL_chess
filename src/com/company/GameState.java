@@ -238,6 +238,7 @@ public class GameState {
 
   // returns true if both strings are valid keys in the coordinate converter
   private boolean isValidCommand(String[] commands){
-    return printToCoord.containsKey(commands[0]) && printToCoord.containsKey(commands[1]);
+    return printToCoord.containsKey(commands[0]) && printToCoord.containsKey(commands[1]) &&
+           !(commands[0].equals(commands[1]));
   }
 }
