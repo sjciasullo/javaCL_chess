@@ -141,7 +141,7 @@ public class GameState {
 
     //runGame until we have a winner
     boolean checkMate = false;
-    String winningTeam = "";
+    boolean checked = false;
     String currentTeam = "White";
     while(!checkMate){
       printBoard();
@@ -156,6 +156,13 @@ public class GameState {
 
         if(lineWords[0].equals("HELP")){
           printHelp();
+        } else if(lineWords[0].equals("FORFEIT")){
+          System.out.println(currentTeam + " forfeits!");
+          String winning = currentTeam.equals("White")? "Black" : "White";
+          System.out.println(winning + " team is the winner!");
+          System.out.println("Please play again!");
+          System.out.println("(That was exactly like wizard's chess. . .)");
+          checkMate = true;
         } else if(lineWords.length < 2) {
           System.out.println("You have entered an invalid move. Please try again.");
         } else if(isValidCommand(lineWords)){
