@@ -208,8 +208,13 @@ public class GameState {
             if(black.get(origin).isValidMove(board, destination)){
               if(checked){
                 // if you are trying to kill checker, temporarily delete from opponent's team
+                boolean checkerRemoved = false;
+                Piece checkerPiece;
                 if(destination.equals(checker)){
-                  white.remove(checker);
+                  checkerPiece = white.remove(checker);
+                  checkerRemoved = true;
+                } else {
+                  checkerPiece = null;
                 }
                 // if you are moving king, set checker to new location
                 Coordinate kingPosition;
@@ -226,14 +231,48 @@ public class GameState {
                 BooleanWrapper unchecker = new BooleanWrapper();
                 white.forEach((key, value) -> {
                   if(value.isValidMove(board, kingPosition)){
-                    unchecker.setToFalse();
+                    unchecker.setToFalse(); // if set to false then the move does not get team out of check
                   }
                 });
+
+                //if successfully unchecked, proceed with regular move
+                // copying from lines validMoveEntered to end of if(checked) TODO: refactor into function
+                if(unchecker.getUncheck()){
+                  checked = false;
+                  checker = null;
+                  validMoveEntered = true;
+                  // if opponent had piece at origin, remove it from the team
+                  if(white.containsKey(destination)){
+                    Piece defeated = white.remove(destination);
+                    System.out.println(black.get(origin).getBoardName() + " takes " + defeated.getBoardName());
+                  }
+
+                  // move the piece to new destination and update board, and update Piece.currentPosition
+                  black.put(destination, black.get(origin));
+                  black.remove(origin);
+                  black.get(destination).setPosition(destination);
+                  board[destination.getRow()][destination.getColumn()] = black.get(destination).getBoardName();
+                  board[origin.getRow()][origin.getColumn()] = "";
+                  // update king if necessary
+                  if(name[1].equals("king")){
+                    blackKing = new Coordinate(destination.getRow(), destination.getColumn());
+                  }
+                  // check if moved piece can attack king
+                  checked = black.get(destination).isValidMove(board, whiteKing);
+                  if(checked){
+                    checker = new Coordinate(destination.getRow(), destination.getColumn());
+                  }
+                } else {
+                  System.out.println("This move does not get you out of check.");
+                  System.out.println("Please try another move or type 'forfeit' to surrender your king.");
+                  if(checkerRemoved){
+                    white.put(checker, checkerPiece);
+                  }
+                }
 
               } else {
                 validMoveEntered = true;
                 // if opponent had piece at origin, remove it from the team
-                // TODO: add another conditional for checking and set the state to a checking position
                 if(white.containsKey(destination)){
                   Piece defeated = white.remove(destination);
                   System.out.println(black.get(origin).getBoardName() + " takes " + defeated.getBoardName());
