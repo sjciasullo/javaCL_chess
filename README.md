@@ -118,11 +118,12 @@
 -   solution: breakpoint on isValidMove in pawn class
     - this showed that current location of piece was not updated yet. this indicates a problem within GameState.runGame as we need to update the location in the hashmap of team after making a move
     - Success
-- refactor isValidMoves
+- refactoring, reducing repetitive code in isValidMove and elsewhere
     - ~~might be able to refactor with a function for checking the different possible lines~~
     - use a function for calculating slope in queen and bishop
     - use line checker for rook
     - bring occupant check out to gameState so it doesn't have to be checked in every piece
+    - can we cut down on how the teams are made?
 - solve checkmate checking, double check, and stalemate
     - use Piece.canCheck()?
     - keep a King.isChecked
