@@ -38,4 +38,17 @@ abstract public class Piece {
   public String getBoardName(){
     return "piece";
   }
+
+  public static boolean obstaclePresent(String[][] board, Coordinate origin, Coordinate destination){
+    int changeY = destination.getRow() - origin.getRow();
+    int changeX = destination.getColumn() - origin.getColumn();
+    while(!origin.equals(destination)){
+      origin.setRow(origin.getRow() + changeY);
+      origin.setColumn(origin.getColumn() + changeX);
+      if(!board[origin.getRow()][origin.getColumn()].equals("")){
+        return false;
+      }
+    }
+    return true;
+  }
 }
