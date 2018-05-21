@@ -140,6 +140,8 @@
 - desired command structure is "piece_name to location"
     - can we make this implementation work?
     - first changed to location to location to account for ease of checking if team has piece and it can move there, using hashmap structure<location, piece>
+- found bug in trying to move queen
+    - should have thrown error so double check that abs value of slope is 1 in line check
 
 ### Future Features
 - optional 1 player or 2 player
