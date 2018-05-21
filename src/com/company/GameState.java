@@ -221,7 +221,12 @@ public class GameState {
                 }
 
                 // check if anyone can check you in remaining
-
+                boolean canUncheck = true;
+                white.forEach((key, value) -> {
+                  if(value.isValidMove(board, kingPosition)){
+                    canUncheck = false;
+                  }
+                });
 
               } else {
                 validMoveEntered = true;
