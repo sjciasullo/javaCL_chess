@@ -130,12 +130,13 @@
     - King.scanForMoves
     - if use strategy then how do we handle double checks?
     - temporary solution:
-        - add a forfeit command option
-        - maintain a coordinate for blackKing and whiteKing
-            - if the king moves update it
-        - if the piece that moved can move to king location, notify check
-            - save checker location in variable and go to check gamestate
-            - if a command is entered that is a valid move, see if the checker can still attack the king. if they can then prompt the user that they would still be in check and that they can forfeit if they want
+        - ~~add a forfeit command option~~
+        - ~~maintain a coordinate for blackKing and whiteKing~~
+            - ~~if the king moves update it~~
+        - ~~if the piece that moved can move to king location, notify check~~
+            - ~~save checker location in variable and go to check gamestate~~
+            - ~~if a command is entered that is a valid move, see if anyone can still attack the king. if they can then prompt the user that they would still be in check and that they can forfeit if they want~~
+            - still need to implement being able to put yourself in check, so need to check if other team can check current after EVERY move -- this should also be a method
 - desired command structure is "piece_name to location"
     - can we make this implementation work?
     - first changed to location to location to account for ease of checking if team has piece and it can move there, using hashmap structure<location, piece>
