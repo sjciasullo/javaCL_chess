@@ -141,6 +141,9 @@ public class GameState {
     //runGame until we have a winner
     boolean checkMate = false;
     boolean checked = false;
+    Coordinate whiteKing = new Coordinate(7, 5);
+    Coordinate blackKing = new Coordinate(0, 5);
+
     String currentTeam = "White";
     while(!checkMate){
       printBoard();
@@ -185,6 +188,11 @@ public class GameState {
               white.get(destination).setPosition(destination);
               board[destination.getRow()][destination.getColumn()] = white.get(destination).getBoardName();
               board[origin.getRow()][origin.getColumn()] = "";
+              // update king if necessary
+              String[] name = white.get(destination).getBoardName().split(" ");
+              if(name[1].equals("king")){
+                whiteKing = new Coordinate(destination.getRow(), destination.getColumn());
+              }
             }
           } else if(black.containsKey(origin)){
             if(black.get(origin).isValidMove(board, destination)){
@@ -202,6 +210,11 @@ public class GameState {
               black.get(destination).setPosition(destination);
               board[destination.getRow()][destination.getColumn()] = black.get(destination).getBoardName();
               board[origin.getRow()][origin.getColumn()] = "";
+              // update king if necessary
+              String[] name = black.get(destination).getBoardName().split(" ");
+              if(name[1].equals("king")){
+                blackKing = new Coordinate(destination.getRow(), destination.getColumn());
+              }
             }
           }
 
