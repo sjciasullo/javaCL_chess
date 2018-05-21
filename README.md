@@ -151,6 +151,7 @@
 - castling
 - automatic checkmate finish
 - different command structure
+- ability to save game by using a structure to save all moves and writing to file
 
 ### Wins and Challenges
 -   Design for such a big project with a lot of moving parts. Being able to visualize all the parts with the whole, knowing what way to organize the data in order to solve problems during design phase.
