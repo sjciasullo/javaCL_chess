@@ -44,6 +44,12 @@ abstract public class Piece {
     int changeX = destination.getColumn() - origin.getColumn();
     int stepX, stepY;
     stepX = stepY = 1;
+    float slope = (float) changeY / (float) changeX;
+
+    //add checker for not drawing out of bounds
+    if(Math.abs(slope) != 1 || slope != 0){
+      return false;
+    }
 
     // We know step-wise motion is 1 by 1 or horizontal because
     // we check slope before this method is ever used (queen, bishop)
