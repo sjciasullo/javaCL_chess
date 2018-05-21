@@ -142,8 +142,8 @@ public class GameState {
     boolean checkMate = false;
     boolean checked = false;
     Coordinate checker = null;
-    Coordinate whiteKing = new Coordinate(7, 5);
-    Coordinate blackKing = new Coordinate(0, 5);
+    Coordinate whiteKing = new Coordinate(7, 4);
+    Coordinate blackKing = new Coordinate(0, 4);
 
     String currentTeam = "White";
     while(!checkMate){
