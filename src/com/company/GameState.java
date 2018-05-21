@@ -153,7 +153,7 @@ public class GameState {
       // read in a move
       boolean validMoveEntered = false;
       while(!validMoveEntered){
-        System.out.print(currentTeam + " team's turn.\n" + (checked ? "You are in check! Get out or forfeit!" : "") + "Please enter a move: ");
+        System.out.print(currentTeam + " team's turn.\n" + (checked ? "You are in check! Get out or forfeit! " : "") + "Please enter a move: ");
         newLine = input.nextLine().toUpperCase();
         lineWords = newLine.split(" ");
 
