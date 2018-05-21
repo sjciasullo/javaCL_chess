@@ -42,9 +42,26 @@ abstract public class Piece {
   public static boolean isClearPath(String[][] board, Coordinate origin, Coordinate destination){
     int changeY = destination.getRow() - origin.getRow();
     int changeX = destination.getColumn() - origin.getColumn();
+    int stepX, stepY;
+    stepX = stepY = 1;
+
+    // We know step-wise motion is 1 by 1 or horizontal because
+    // we check slope before this method is ever used (queen, bishop)
+    if(changeY < 0){
+      stepY *= -1;
+    }
+
+    if(changeX < 0){
+      stepX *= -1;
+    }
+
+    if(changeX == 0) {
+      stepX = 0;
+    }
+
     while(!origin.equals(destination)){
-      origin.setRow(origin.getRow() + changeY);
-      origin.setColumn(origin.getColumn() + changeX);
+      origin.setRow(origin.getRow() + stepY);
+      origin.setColumn(origin.getColumn() + stepX);
       if(!board[origin.getRow()][origin.getColumn()].equals("")){
         return false;
       }
