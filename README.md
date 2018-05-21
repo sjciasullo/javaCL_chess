@@ -140,6 +140,8 @@
 - optional 1 player or 2 player
     - creation of chess AI
 - adding visuals
+- castling
+- automatic checkmate finish
 
 ### Wins and Challenges
 -   Design for such a big project with a lot of moving parts. Being able to visualize all the parts with the whole, knowing what way to organize the data in order to solve problems during design phase.
