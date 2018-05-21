@@ -157,10 +157,10 @@ public class GameState {
         if(lineWords[0].equals("HELP")){
           printHelp();
         } else if(lineWords[0].equals("FORFEIT")){
+          validMoveEntered = true;
           System.out.println(currentTeam + " forfeits!");
           String winning = currentTeam.equals("White")? "Black" : "White";
           System.out.println(winning + " team is the winner!");
-          System.out.println("Please play again!");
           System.out.println("(That was exactly like wizard's chess. . .)");
           checkMate = true;
         } else if(lineWords.length < 2) {
