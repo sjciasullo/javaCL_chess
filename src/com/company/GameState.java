@@ -207,6 +207,21 @@ public class GameState {
           } else if(black.containsKey(origin)){
             if(black.get(origin).isValidMove(board, destination)){
               if(checked){
+                // if you are trying to kill checker, temporarily delete from opponent's team
+                if(destination.equals(checker)){
+                  white.remove(checker);
+                }
+                // if you are moving king, set checker to new location
+                Coordinate kingPosition;
+                String[] name = black.get(origin).getBoardName().split(" ");
+                if(name[1].equals("king")){
+                  kingPosition = new Coordinate(destination.getRow(), destination.getColumn());
+                } else {
+                  kingPosition = blackKing;
+                }
+
+                // check if anyone can check you in remaining
+
 
               } else {
                 validMoveEntered = true;
