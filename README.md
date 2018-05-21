@@ -119,7 +119,10 @@
     - this showed that current location of piece was not updated yet. this indicates a problem within GameState.runGame as we need to update the location in the hashmap of team after making a move
     - Success
 - refactor isValidMoves
-    - might be able to refactor with a function for checking the different possible lines
+    - ~~might be able to refactor with a function for checking the different possible lines~~
+    - use a function for calculating slope in queen and bishop
+    - use line checker for rook
+    - bring occupant check out to gameState so it doesn't have to be checked in every piece
 - solve checkmate checking, double check, and stalemate
     - use Piece.canCheck()?
     - keep a King.isChecked
