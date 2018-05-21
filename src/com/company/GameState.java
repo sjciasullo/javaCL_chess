@@ -141,6 +141,7 @@ public class GameState {
     //runGame until we have a winner
     boolean checkMate = false;
     boolean checked = false;
+    Coordinate checker = null;
     Coordinate whiteKing = new Coordinate(7, 5);
     Coordinate blackKing = new Coordinate(0, 5);
 
@@ -152,7 +153,7 @@ public class GameState {
       // read in a move
       boolean validMoveEntered = false;
       while(!validMoveEntered){
-        System.out.print(currentTeam + " team's turn.\n" + "Please enter a move: ");
+        System.out.print(currentTeam + " team's turn.\n" + (checked ? "You are in check! Get out or forfeit!" : "") + "Please enter a move: ");
         newLine = input.nextLine().toUpperCase();
         lineWords = newLine.split(" ");
 
@@ -174,46 +175,64 @@ public class GameState {
           // check if current team has a piece at that spot
           if(currentTeam.equals("White") && white.containsKey(origin)){
             if(white.get(origin).isValidMove(board, destination)){
-              validMoveEntered = true;
-              // if opponent had piece at origin, remove it from the team
-              // TODO: add another conditional for checking and set the state to a checking position
-              if(black.containsKey(destination)){
-                Piece defeated = black.remove(destination);
-                System.out.println(white.get(origin).getBoardName() + " takes " + defeated.getBoardName());
-              }
+              if(checked){
 
-              // move the piece to new destination and update board, AND UPDATE PIECE.CURRENTposition
-              white.put(destination, white.get(origin));
-              white.remove(origin);
-              white.get(destination).setPosition(destination);
-              board[destination.getRow()][destination.getColumn()] = white.get(destination).getBoardName();
-              board[origin.getRow()][origin.getColumn()] = "";
-              // update king if necessary
-              String[] name = white.get(destination).getBoardName().split(" ");
-              if(name[1].equals("king")){
-                whiteKing = new Coordinate(destination.getRow(), destination.getColumn());
+              } else {
+                validMoveEntered = true;
+                // if opponent had piece at origin, remove it from the team
+                // TODO: add another conditional for checking and set the state to a checking position
+                if(black.containsKey(destination)){
+                  Piece defeated = black.remove(destination);
+                  System.out.println(white.get(origin).getBoardName() + " takes " + defeated.getBoardName());
+                }
+
+                // move the piece to new destination and update board, AND UPDATE PIECE.CURRENTposition
+                white.put(destination, white.get(origin));
+                white.remove(origin);
+                white.get(destination).setPosition(destination);
+                board[destination.getRow()][destination.getColumn()] = white.get(destination).getBoardName();
+                board[origin.getRow()][origin.getColumn()] = "";
+                // update king if necessary
+                String[] name = white.get(destination).getBoardName().split(" ");
+                if(name[1].equals("king")){
+                  whiteKing = new Coordinate(destination.getRow(), destination.getColumn());
+                }
+                // check if moved piece can attack king
+                checked = white.get(destination).isValidMove(board, blackKing);
+                if(checked){
+                  checker = new Coordinate(destination.getRow(), destination.getColumn());
+                }
               }
             }
           } else if(black.containsKey(origin)){
             if(black.get(origin).isValidMove(board, destination)){
-              validMoveEntered = true;
-              // if opponent had piece at origin, remove it from the team
-              // TODO: add another conditional for checking and set the state to a checking position
-              if(white.containsKey(destination)){
-                Piece defeated = white.remove(destination);
-                System.out.println(black.get(origin).getBoardName() + " takes " + defeated.getBoardName());
-              }
+              if(checked){
 
-              // move the piece to new destination and update board, and update Piece.currentPosition
-              black.put(destination, black.get(origin));
-              black.remove(origin);
-              black.get(destination).setPosition(destination);
-              board[destination.getRow()][destination.getColumn()] = black.get(destination).getBoardName();
-              board[origin.getRow()][origin.getColumn()] = "";
-              // update king if necessary
-              String[] name = black.get(destination).getBoardName().split(" ");
-              if(name[1].equals("king")){
-                blackKing = new Coordinate(destination.getRow(), destination.getColumn());
+              } else {
+                validMoveEntered = true;
+                // if opponent had piece at origin, remove it from the team
+                // TODO: add another conditional for checking and set the state to a checking position
+                if(white.containsKey(destination)){
+                  Piece defeated = white.remove(destination);
+                  System.out.println(black.get(origin).getBoardName() + " takes " + defeated.getBoardName());
+                }
+
+                // move the piece to new destination and update board, and update Piece.currentPosition
+                black.put(destination, black.get(origin));
+                black.remove(origin);
+                black.get(destination).setPosition(destination);
+                board[destination.getRow()][destination.getColumn()] = black.get(destination).getBoardName();
+                board[origin.getRow()][origin.getColumn()] = "";
+                // update king if necessary
+                String[] name = black.get(destination).getBoardName().split(" ");
+                if(name[1].equals("king")){
+                  blackKing = new Coordinate(destination.getRow(), destination.getColumn());
+                }
+                // check if moved piece can attack king
+                checked = black.get(destination).isValidMove(board, whiteKing);
+                if(checked){
+                  checker = new Coordinate(destination.getRow(), destination.getColumn());
+                }
               }
             }
           }
