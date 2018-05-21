@@ -221,6 +221,8 @@ public class GameState {
                 }
 
                 // check if anyone can check you in remaining
+                // solution: https://javatutorial.net/java-iterate-hashmap-example
+                // wrapper solution: https://stackoverflow.com/questions/30026824/modifying-local-variable-from-inside-lambda
                 BooleanWrapper unchecker = new BooleanWrapper();
                 white.forEach((key, value) -> {
                   if(value.isValidMove(board, kingPosition)){

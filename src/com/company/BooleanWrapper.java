@@ -1,12 +1,16 @@
 package com.company;
 
 public class BooleanWrapper {
-  boolean canUncheck = true;
+  private boolean canUncheck = true;
 
   BooleanWrapper(){
   }
 
   public void setToFalse(){
     canUncheck = false;
+  }
+
+  public boolean getUncheck(){
+    return canUncheck;
   }
 }
