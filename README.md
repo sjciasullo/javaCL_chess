@@ -124,6 +124,7 @@
     - use line checker for rook
     - bring occupant check out to gameState so it doesn't have to be checked in every piece
     - can we cut down on how the teams are made?
+    - runGame is very cluttered and long... create function to handle make move so it's not the exact same code for different teams. could create Team class and make array of teams
 - solve checkmate checking, double check, and stalemate
     - use Piece.canCheck()?
     - keep a King.isChecked
@@ -149,6 +150,8 @@
 - adding visuals
 - castling
 - automatic checkmate finish
+- different command structure
+- 
 
 ### Wins and Challenges
 -   Design for such a big project with a lot of moving parts. Being able to visualize all the parts with the whole, knowing what way to organize the data in order to solve problems during design phase.
