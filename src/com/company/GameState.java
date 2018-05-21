@@ -40,6 +40,11 @@ public class GameState {
     black.put(new Coordinate(0,6), new Knight("black", new Coordinate(0,6)));
     white.put(new Coordinate(7,1), new Knight("white", new Coordinate(7,1)));
     white.put(new Coordinate(7,6), new Knight("white", new Coordinate(7,6)));
+    // -- create bishops
+    black.put(new Coordinate(0,2), new Bishop("black", new Coordinate(0,2)));
+    black.put(new Coordinate(0,5), new Bishop("black", new Coordinate(0,5)));
+    white.put(new Coordinate(7,2), new Bishop("white", new Coordinate(7,2)));
+    white.put(new Coordinate(7,5), new Bishop("white", new Coordinate(7,5)));
     // -- create kings
     black.put(new Coordinate(0,4), new King("black", new Coordinate(0,4)));
     white.put(new Coordinate(7,4), new King("white", new Coordinate(7,4)));
