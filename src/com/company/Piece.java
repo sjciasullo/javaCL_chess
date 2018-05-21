@@ -47,7 +47,7 @@ abstract public class Piece {
     float slope = (float) changeY / (float) changeX;
 
     //add checker for not drawing out of bounds
-    if(Math.abs(slope) != 1 || slope != 0){
+    if(!(Math.abs(slope) == 1.0F || slope == 0.0F)){
       return false;
     }
 
