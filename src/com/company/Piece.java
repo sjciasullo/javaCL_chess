@@ -59,12 +59,14 @@ abstract public class Piece {
       stepX = 0;
     }
 
+    origin.setRow(origin.getRow() + stepY);
+    origin.setColumn(origin.getColumn() + stepX);
     while(!origin.equals(destination)){
-      origin.setRow(origin.getRow() + stepY);
-      origin.setColumn(origin.getColumn() + stepX);
       if(!board[origin.getRow()][origin.getColumn()].equals("")){
         return false;
       }
+      origin.setRow(origin.getRow() + stepY);
+      origin.setColumn(origin.getColumn() + stepX);
     }
     return true;
   }
