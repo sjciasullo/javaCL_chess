@@ -131,7 +131,6 @@ public class GameState {
     while(!playBegin){
       newLine = input.nextLine().toLowerCase();
       lineWords = newLine.split(" ");
-      System.out.println(Arrays.toString(lineWords));
       if(lineWords[0].equals("play")){
         playBegin = true;
       }
