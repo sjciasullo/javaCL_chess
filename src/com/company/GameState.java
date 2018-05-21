@@ -221,10 +221,10 @@ public class GameState {
                 }
 
                 // check if anyone can check you in remaining
-                boolean canUncheck = true;
+                BooleanWrapper unchecker = new BooleanWrapper();
                 white.forEach((key, value) -> {
                   if(value.isValidMove(board, kingPosition)){
-                    canUncheck = false;
+                    unchecker.setToFalse();
                   }
                 });
 
