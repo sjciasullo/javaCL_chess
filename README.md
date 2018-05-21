@@ -151,3 +151,4 @@
 -   Design for such a big project with a lot of moving parts. Being able to visualize all the parts with the whole, knowing what way to organize the data in order to solve problems during design phase.
 - After being brought to the problem of using an array as a hash key, I was able to create a class of Coordinate objects for the hash. The meant I had to override the equals and hashCode methods for the Coordinate class which brought me to a deeper understanding of overriding a Java-defined method and Java's implementation of those Object methods.
 - successful debugging of pawn movement taking another pawn
+- using lambda function and wrapper class to loop through hashmap
