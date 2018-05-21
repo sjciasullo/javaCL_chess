@@ -39,7 +39,7 @@ abstract public class Piece {
     return "piece";
   }
 
-  public static boolean obstaclePresent(String[][] board, Coordinate origin, Coordinate destination){
+  public static boolean isClearPath(String[][] board, Coordinate origin, Coordinate destination){
     int changeY = destination.getRow() - origin.getRow();
     int changeX = destination.getColumn() - origin.getColumn();
     while(!origin.equals(destination)){

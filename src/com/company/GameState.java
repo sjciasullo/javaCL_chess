@@ -43,6 +43,9 @@ public class GameState {
     // -- create kings
     black.put(new Coordinate(0,4), new King("black", new Coordinate(0,4)));
     white.put(new Coordinate(7,4), new King("white", new Coordinate(7,4)));
+    // -- create queens
+    black.put(new Coordinate(0,3), new Queen("black", new Coordinate(0,3)));
+    white.put(new Coordinate(7,3), new Queen("white", new Coordinate(7,3)));
 
     // Initialize board
     for(int i = 0; i < 8; i++){
